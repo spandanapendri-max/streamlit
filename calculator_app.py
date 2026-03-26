@@ -1,0 +1,37 @@
+import streamlit as st
+
+st.title("🧮 Advanced Calculator")
+
+num1 = st.number_input("Enter First Number", value=0.0)
+num2 = st.number_input("Enter Second Number", value=0.0)
+
+operation = st.selectbox(
+    "Choose Operation",
+    ["Addition", "Subtraction", "Multiplication",
+     "Division", "Percentage", "Power"]
+)
+
+if st.button("Calculate"):
+
+    if operation == "Addition":
+        result = num1 + num2
+
+    elif operation == "Subtraction":
+        result = num1 - num2
+
+    elif operation == "Multiplication":
+        result = num1 * num2
+
+    elif operation == "Division":
+        if num2 != 0:
+            result = num1 / num2
+        else:
+            result = "Cannot divide by zero"
+
+    elif operation == "Percentage":
+        result = (num1 / 100) * num2
+
+    elif operation == "Power":
+        result = num1 ** num2
+
+    st.success(f"Result: {result}")
